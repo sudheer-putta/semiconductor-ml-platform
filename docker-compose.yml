@@ -1,0 +1,42 @@
+
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+
+    container_name: semiconductor-api-container
+
+    ports:
+      - "8000:8000"
+
+    environment:
+      MLFLOW_TRACKING_URI: http://host.docker.internal:5000
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+    restart: unless-stopped
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+
+    container_name: semiconductor-dashboard-container
+
+    ports:
+      - "8501:8501"
+
+    environment:
+      API_URL: http://api:8000
+      MLFLOW_TRACKING_URI: http://host.docker.internal:5000
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+    depends_on:
+      - api
+
+    restart: unless-stopped

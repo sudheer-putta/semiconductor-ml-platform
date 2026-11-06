@@ -1,0 +1,3 @@
+anomaly_status,total_samples,actual_failures,failure_percentage
+Anomaly,79,10,12.658227848101266
+Normal,1488,94,6.317204301075269
