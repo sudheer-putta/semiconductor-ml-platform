@@ -1,40 +1,18 @@
 
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-.Python
-
-# Virtual environments
+# Virtual environment
 .venv/
 venv/
 env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
 
 # Environment variables and secrets
 .env
 .env.*
 !.env.example
-
-# Dataset files
-data/raw/*
-data/processed/*
-!data/raw/.gitkeep
-!data/processed/.gitkeep
-
-# MLflow tracking and local database
-mlruns/
-mlartifacts/
-mlflow.db
-*.db
-
-# Model artifacts
-models/*
-!models/.gitkeep
-
-# Reports - keep generated visualizations and reports
-# (Remove this section if you want to exclude reports)
-# reports/
 
 # Jupyter
 .ipynb_checkpoints/
@@ -43,14 +21,29 @@ models/*
 .vscode/
 .idea/
 
+# Dataset files
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# MLflow local files
+mlruns/
+mlartifacts/
+mlflow.db
+mlflow.db-shm
+mlflow.db-wal/
+
+# Model files
+models/*.pkl
+models/*.joblib
+models/*.h5
+models/*.keras
+
+# Logs
+logs/
+*.log
+
 # OS files
 .DS_Store
 Thumbs.db
-
-# Logs
-*.log
-logs/*
-
-# Temporary files
-*.tmp
-*.bak
